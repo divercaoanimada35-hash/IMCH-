@@ -1,0 +1,6 @@
+{
+  "name": "IMCH AI Developer",
+  "description": "Plataforma de desenvolvimento com inteligência artificial da IMCH Soluções Digitais. Chat inteligente, chamada de voz e vídeo interativa, criação de websites e aplicações completas, editor de código e pré-visualização ao vivo potenciada pela OpenRouter.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

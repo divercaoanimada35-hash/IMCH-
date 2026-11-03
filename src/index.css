@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --bg-main: #ffffff;
+    --bg-surface: #f8fafc;
+    --bg-card: #f1f5f9;
+    --border-subtle: #e2e8f0;
+    --text-primary: #0a0a0a;
+    --text-muted: #475569;
+    --accent-color: #2563eb;
+  }
+
+  .dark {
+    --bg-main: #050505;
+    --bg-surface: #0a0a0c;
+    --bg-card: #121215;
+    --border-subtle: #1f1f23;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #3b82f6;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom sleek scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =========================================================================
+   PERMANENT PROFESSIONAL SYNTAX HIGHLIGHTING COLORS
+   (The user requested: do NOT change code colors on theme toggle!
+    Keep the original colors for the code in both light and dark mode)
+   ========================================================================= */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #768390 !important;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #abb2bf !important;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #e06c75 !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #98c379 !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: #56b6c2 !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #c678dd !important;
+  font-weight: 500;
+}
+
+.token.function,
+.token.class-name {
+  color: #61afef !important;
+}
+
+.token.regex,
+.token.important {
+  color: #e5c07b !important;
+}
+
+/* Synchronized Code Editor Overlay rules */
+.editor-layer {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+  tab-size: 2 !important;
+  letter-spacing: 0px !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  box-sizing: border-box !important;
+}
+
+/* =========================================================================
+   ANIMATIONS FOR TITLE & HERO PROMPTS
+   ========================================================================= */
+
+@keyframes textShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(4deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes caretBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #171717 0%,
+    #525252 25%,
+    #171717 50%,
+    #2563eb 75%,
+    #171717 100%
+  );
+  background-size: 200% auto;
+  color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  animation: textShimmer 5s ease-in-out infinite;
+}
+
+.dark .animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #a3a3a3 25%,
+    #ffffff 50%,
+    #60a5fa 75%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  animation: textShimmer 5s ease-in-out infinite;
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-caret {
+  animation: caretBlink 1s infinite;
+}
+
